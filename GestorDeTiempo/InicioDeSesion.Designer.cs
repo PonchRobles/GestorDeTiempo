@@ -43,6 +43,7 @@
             this.btnIniciarSession.TabIndex = 0;
             this.btnIniciarSession.Text = "Inicar Sesion";
             this.btnIniciarSession.UseVisualStyleBackColor = true;
+            this.btnIniciarSession.Click += new System.EventHandler(this.btnIniciarSession_Click);
             // 
             // txtNombreDeUsuario
             // 

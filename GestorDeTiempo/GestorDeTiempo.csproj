@@ -45,11 +45,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestorTiempoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestorTiempoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="InicioDeSesion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="InicioDeSesion.Designer.cs">
       <DependentUpon>InicioDeSesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuEncargado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuEncargado.Designer.cs">
+      <DependentUpon>MenuEncargado.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,6 +70,12 @@
     <Compile Include="Registro.Designer.cs">
       <DependentUpon>Registro.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegistroDeProceso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroDeProceso.Designer.cs">
+      <DependentUpon>RegistroDeProceso.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistroDeTipoDeUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +84,9 @@
     </Compile>
     <EmbeddedResource Include="InicioDeSesion.resx">
       <DependentUpon>InicioDeSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuEncargado.resx">
+      <DependentUpon>MenuEncargado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -80,9 +100,23 @@
     <EmbeddedResource Include="Registro.resx">
       <DependentUpon>Registro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RegistroDeProceso.resx">
+      <DependentUpon>RegistroDeProceso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegistroDeTipoDeUsuario.resx">
       <DependentUpon>RegistroDeTipoDeUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="GestorTiempoDataSet.xsc">
+      <DependentUpon>GestorTiempoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestorTiempoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestorTiempoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestorTiempoDataSet.xss">
+      <DependentUpon>GestorTiempoDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

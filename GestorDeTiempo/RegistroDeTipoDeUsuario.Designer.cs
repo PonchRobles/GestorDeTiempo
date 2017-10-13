@@ -41,6 +41,7 @@
             this.btnResitrarTipo.TabIndex = 0;
             this.btnResitrarTipo.Text = "Registrar";
             this.btnResitrarTipo.UseVisualStyleBackColor = true;
+            this.btnResitrarTipo.Click += new System.EventHandler(this.btnResitrarTipo_Click);
             // 
             // txtNombreDeTipo
             // 
