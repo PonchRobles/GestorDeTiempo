@@ -50,6 +50,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GestorTiempoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GestorTiempoDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestorTiempoDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestorTiempoDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestorTiempoDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestorTiempoDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestorTiempoDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestorTiempoDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestorTiempoDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="InicioDeSesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +102,12 @@
     <Compile Include="RegistroDeTipoDeUsuario.Designer.cs">
       <DependentUpon>RegistroDeTipoDeUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="SeleccionarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionarProducto.Designer.cs">
+      <DependentUpon>SeleccionarProducto.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="InicioDeSesion.resx">
       <DependentUpon>InicioDeSesion.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +132,9 @@
     <EmbeddedResource Include="RegistroDeTipoDeUsuario.resx">
       <DependentUpon>RegistroDeTipoDeUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionarProducto.resx">
+      <DependentUpon>SeleccionarProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="GestorTiempoDataSet.xsc">
       <DependentUpon>GestorTiempoDataSet.xsd</DependentUpon>
     </None>
@@ -116,6 +145,50 @@
     </None>
     <None Include="GestorTiempoDataSet.xss">
       <DependentUpon>GestorTiempoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestorTiempoDataSet1.xsc">
+      <DependentUpon>GestorTiempoDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GestorTiempoDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestorTiempoDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestorTiempoDataSet1.xss">
+      <DependentUpon>GestorTiempoDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GestorTiempoDataSet2.xsc">
+      <DependentUpon>GestorTiempoDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="GestorTiempoDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestorTiempoDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestorTiempoDataSet2.xss">
+      <DependentUpon>GestorTiempoDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="GestorTiempoDataSet3.xsc">
+      <DependentUpon>GestorTiempoDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="GestorTiempoDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestorTiempoDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestorTiempoDataSet3.xss">
+      <DependentUpon>GestorTiempoDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="GestorTiempoDataSet4.xsc">
+      <DependentUpon>GestorTiempoDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="GestorTiempoDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestorTiempoDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestorTiempoDataSet4.xss">
+      <DependentUpon>GestorTiempoDataSet4.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

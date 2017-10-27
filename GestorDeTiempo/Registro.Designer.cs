@@ -33,18 +33,19 @@
             this.txtNombreDeUsuario = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lboxTipoDeUsuario = new System.Windows.Forms.ListBox();
+            this.tipoDeUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gestorTiempoDataSet = new GestorDeTiempo.GestorTiempoDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.gestorTiempoDataSet = new GestorDeTiempo.GestorTiempoDataSet();
-            this.tipoDeUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tipoDeUsuarioTableAdapter = new GestorDeTiempo.GestorTiempoDataSetTableAdapters.TipoDeUsuarioTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestorTiempoDataSet)).BeginInit();
+            this.btnRegresar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tipoDeUsuarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestorTiempoDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRegistrar
@@ -81,6 +82,16 @@
             this.lboxTipoDeUsuario.Size = new System.Drawing.Size(120, 43);
             this.lboxTipoDeUsuario.TabIndex = 3;
             this.lboxTipoDeUsuario.ValueMember = "IdTipoDeUsuario";
+            // 
+            // tipoDeUsuarioBindingSource
+            // 
+            this.tipoDeUsuarioBindingSource.DataMember = "TipoDeUsuario";
+            this.tipoDeUsuarioBindingSource.DataSource = this.gestorTiempoDataSet;
+            // 
+            // gestorTiempoDataSet
+            // 
+            this.gestorTiempoDataSet.DataSetName = "GestorTiempoDataSet";
+            this.gestorTiempoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -138,25 +149,26 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // gestorTiempoDataSet
-            // 
-            this.gestorTiempoDataSet.DataSetName = "GestorTiempoDataSet";
-            this.gestorTiempoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tipoDeUsuarioBindingSource
-            // 
-            this.tipoDeUsuarioBindingSource.DataMember = "TipoDeUsuario";
-            this.tipoDeUsuarioBindingSource.DataSource = this.gestorTiempoDataSet;
-            // 
             // tipoDeUsuarioTableAdapter
             // 
             this.tipoDeUsuarioTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Location = new System.Drawing.Point(13, 12);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(75, 23);
+            this.btnRegresar.TabIndex = 10;
+            this.btnRegresar.Text = "Regresar";
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 392);
+            this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.dataGridView1);
@@ -170,9 +182,9 @@
             this.Name = "Registro";
             this.Text = "Registro";
             this.Load += new System.EventHandler(this.Registro_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestorTiempoDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoDeUsuarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestorTiempoDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +205,6 @@
         private GestorTiempoDataSet gestorTiempoDataSet;
         private System.Windows.Forms.BindingSource tipoDeUsuarioBindingSource;
         private GestorTiempoDataSetTableAdapters.TipoDeUsuarioTableAdapter tipoDeUsuarioTableAdapter;
+        private System.Windows.Forms.Button btnRegresar;
     }
 }

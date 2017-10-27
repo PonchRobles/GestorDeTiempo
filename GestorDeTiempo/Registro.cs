@@ -57,20 +57,38 @@ namespace GestorDeTiempo
         }
         private void DisplayData()
         {
-            con.Open();
-            DataTable dt = new DataTable();
-            adapt = new SqlDataAdapter("select * from Usuarios", con);
-            adapt.Fill(dt);
-            dataGridView1.DataSource = dt;
-            con.Close();
+            try
+            {
+                con.Open();
+                DataTable dt = new DataTable();
+                adapt = new SqlDataAdapter("select * from Usuarios", con);
+                adapt.Fill(dt);
+                dataGridView1.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+          
         }
         //Clear Data  
         private void ClearData()
         {
-            txtNombreDeUsuario.Text = "";
-            txtPassword.Text = "";
-            ID = 0;
-            lboxTipoDeUsuario.Items.Clear();
+            try
+            {
+                txtNombreDeUsuario.Text = "";
+                txtPassword.Text = "";
+                ID = 0;
+               // lboxTipoDeUsuario.Items.Clear();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+          
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -132,6 +150,13 @@ namespace GestorDeTiempo
             // TODO: This line of code loads data into the 'gestorTiempoDataSet.TipoDeUsuario' table. You can move, or remove it, as needed.
             this.tipoDeUsuarioTableAdapter.Fill(this.gestorTiempoDataSet.TipoDeUsuario);
 
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            MenuEncargado ME = new MenuEncargado();
+            ME.ShowDialog();
+            this.Close();
         }
     }
 }

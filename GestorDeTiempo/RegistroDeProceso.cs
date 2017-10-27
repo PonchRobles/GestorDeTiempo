@@ -16,5 +16,12 @@ namespace GestorDeTiempo
         {
             InitializeComponent();
         }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            MenuEncargado ME = new MenuEncargado();
+            ME.ShowDialog();
+            this.Close();
+        }
     }
 }

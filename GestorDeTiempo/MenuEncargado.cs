@@ -30,5 +30,13 @@ namespace GestorDeTiempo
             RTU.ShowDialog();
             this.Close();
         }
+
+        private void btnProducirUnProducto_Click(object sender, EventArgs e)
+        {
+            SeleccionarProducto SP = new SeleccionarProducto();
+            SP.ShowDialog();
+            this.Close();
+
+        }
     }
 }
