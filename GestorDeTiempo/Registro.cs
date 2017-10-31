@@ -13,6 +13,7 @@ namespace GestorDeTiempo
 {
     public partial class Registro : Form
     {
+
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-CID5MAP;Initial Catalog=GestorTiempo;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter adapt;
@@ -28,25 +29,25 @@ namespace GestorDeTiempo
             try
             {
 
-            
-            if (txtNombreDeUsuario.Text != "" && txtPassword.Text != "")
-            {
-                cmd = new SqlCommand("insert into Usuarios(NombreDeUsuario,IdTipoDeUsuario,Password) values(@name,@tipodeusuarioid,@password)", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@name", txtNombreDeUsuario.Text);
-                cmd.Parameters.AddWithValue("@tipodeusuarioid",Convert.ToInt32(lboxTipoDeUsuario.SelectedValue));
-                cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Record Inserted Successfully");
-               
-                DisplayData();
-                ClearData();
-            }
-            else
-            {
-                MessageBox.Show("Please Provide Details!");
-            }
+
+                if (txtNombreDeUsuario.Text != string.Empty && txtPassword.Text != string.Empty)
+                {
+                    cmd = new SqlCommand("insert into Usuarios(NombreDeUsuario,IdTipoDeUsuario,Password) values(@name,@tipodeusuarioid,@password)", con);
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@name", txtNombreDeUsuario.Text);
+                    cmd.Parameters.AddWithValue("@tipodeusuarioid", Convert.ToInt32(lboxTipoDeUsuario.SelectedValue));
+                    cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Record Inserted Successfully");
+
+                    DisplayData();
+                    ClearData();
+                }
+                else
+                {
+                    MessageBox.Show("Please Provide Details!");
+                }
             }
             catch (Exception ex)
             {
@@ -71,7 +72,7 @@ namespace GestorDeTiempo
 
                 MessageBox.Show(ex.ToString());
             }
-          
+
         }
         //Clear Data  
         private void ClearData()
@@ -81,14 +82,14 @@ namespace GestorDeTiempo
                 txtNombreDeUsuario.Text = "";
                 txtPassword.Text = "";
                 ID = 0;
-               // lboxTipoDeUsuario.Items.Clear();
+                // lboxTipoDeUsuario.Items.Clear();
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
             }
-          
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -97,7 +98,7 @@ namespace GestorDeTiempo
         }
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            // ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            //ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             txtNombreDeUsuario.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtPassword.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             lboxTipoDeUsuario.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -105,25 +106,34 @@ namespace GestorDeTiempo
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            if (txtNombreDeUsuario.Text != "" && txtPassword.Text != "")
+            try
             {
-                cmd = new SqlCommand("update Usuarios set (@name,@tipodeusuarioid,@password where ID=@id", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@id", ID);
-                cmd.Parameters.AddWithValue("@name", txtNombreDeUsuario.Text);
-                cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-                cmd.Parameters.AddWithValue("@tipodeusuarioid", lboxTipoDeUsuario.SelectedValue);
+                if (txtNombreDeUsuario.Text != string.Empty || txtPassword.Text != string.Empty)
+                {
+                    cmd = new SqlCommand("update Usuarios set NombreDeUsuario=@name,IdTipoDeUsuario=@tipodeusuarioid,Password=@password where IdUsuario=@id", con);
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@id",dataGridView1.SelectedRows);
+                    cmd.Parameters.AddWithValue("@name", txtNombreDeUsuario.Text);
+                    cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+                    cmd.Parameters.AddWithValue("@tipodeusuarioid", Convert.ToInt32(lboxTipoDeUsuario.SelectedValue));
 
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Record Updated Successfully");
-                con.Close();
-                DisplayData();
-                ClearData();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Record Updated Successfully");
+                    con.Close();
+                    DisplayData();
+                    ClearData();
+                }
+                else
+                {
+                    MessageBox.Show("Please Select Record to Update");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please Select Record to Update");
+
+                MessageBox.Show(ex.ToString());
             }
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -155,6 +165,8 @@ namespace GestorDeTiempo
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             MenuEncargado ME = new MenuEncargado();
+            //ME.Show();
+            //Close();
             ME.ShowDialog();
             this.Close();
         }

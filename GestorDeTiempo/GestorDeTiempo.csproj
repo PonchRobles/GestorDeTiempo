@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarLaCreacionDeUnProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarLaCreacionDeUnProducto.Designer.cs">
+      <DependentUpon>AgregarLaCreacionDeUnProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestorTiempoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,6 +114,14 @@
     <Compile Include="SeleccionarProducto.Designer.cs">
       <DependentUpon>SeleccionarProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="SelectedDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SelectedDepartamento.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AgregarLaCreacionDeUnProducto.resx">
+      <DependentUpon>AgregarLaCreacionDeUnProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InicioDeSesion.resx">
       <DependentUpon>InicioDeSesion.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +213,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SelectedDepartamento.xsc">
+      <DependentUpon>SelectedDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="SelectedDepartamento.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SelectedDepartamento.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SelectedDepartamento.xss">
+      <DependentUpon>SelectedDepartamento.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

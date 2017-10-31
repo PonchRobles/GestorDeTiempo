@@ -31,6 +31,7 @@
             this.btnRegistrarUsuario = new System.Windows.Forms.Button();
             this.btnRegistroTipoDeUsuario = new System.Windows.Forms.Button();
             this.btnProducirUnProducto = new System.Windows.Forms.Button();
+            this.btnCrearPath = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRegistrarUsuario
@@ -63,11 +64,22 @@
             this.btnProducirUnProducto.UseVisualStyleBackColor = true;
             this.btnProducirUnProducto.Click += new System.EventHandler(this.btnProducirUnProducto_Click);
             // 
+            // btnCrearPath
+            // 
+            this.btnCrearPath.Location = new System.Drawing.Point(256, 176);
+            this.btnCrearPath.Name = "btnCrearPath";
+            this.btnCrearPath.Size = new System.Drawing.Size(172, 96);
+            this.btnCrearPath.TabIndex = 3;
+            this.btnCrearPath.Text = "CrearPath";
+            this.btnCrearPath.UseVisualStyleBackColor = true;
+            this.btnCrearPath.Click += new System.EventHandler(this.btnCrearPath_Click);
+            // 
             // MenuEncargado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 348);
+            this.Controls.Add(this.btnCrearPath);
             this.Controls.Add(this.btnProducirUnProducto);
             this.Controls.Add(this.btnRegistroTipoDeUsuario);
             this.Controls.Add(this.btnRegistrarUsuario);
@@ -82,5 +94,6 @@
         private System.Windows.Forms.Button btnRegistrarUsuario;
         private System.Windows.Forms.Button btnRegistroTipoDeUsuario;
         private System.Windows.Forms.Button btnProducirUnProducto;
+        private System.Windows.Forms.Button btnCrearPath;
     }
 }

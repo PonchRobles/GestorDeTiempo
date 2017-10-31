@@ -38,32 +38,16 @@ namespace GestorDeTiempo
         {
             try
             {
-                cmd = new SqlCommand("UPDATE ProductoDepartamentoProceso SET IdEstado=@idestado  WHERE IdProductoDepartamentoProceso =@IdProductoDepartamentoProceso", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@IdProductoDepartamentoProceso", dataGridView1.Rows.Count);
-                cmd.Parameters.AddWithValue("@idestado", listBox1.SelectedValue);
-                //cmd.Parameters.AddWithValue("@state", txt_State.Text);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Record Updated Successfully");
-                con.Close();
+               
+               // cmd = new SqlCommand("UPDATE ProductoDepartamentoProceso SET IdEstado=@idestado  WHERE IdProductoDepartamentoProceso =@IdProductoDepartamentoProceso", con);
+               // con.Open();
+               //// cmd.Parameters.AddWithValue("@IdProductoDepartamentoProceso", dataGridView1.Rows.Count);
+               // cmd.Parameters.AddWithValue("@idestado", 2);
 
-                //SeleccionarProducto SP = new SeleccionarProducto();
-                //SP.ShowDialog();
-                //this.Close();
-
-                //    cmd = new SqlCommand("" +
-                //        "UPDATE PROCESO  SET EstadoProceso = 2  WHERE EstadoProceso = 1",
-
-                //        con);
-                //    con.Open();
-
-                //    cmd.Parameters.AddWithValue("@tipodeusuarioid", Convert.ToInt32(listBox1.SelectedValue));
-
-                //    cmd.ExecuteNonQuery();
-                //    con.Close();
-                //    MessageBox.Show("Record Inserted Successfully");
-
-
+               // //cmd.Parameters.AddWithValue("@state", txt_State.Text);
+               // cmd.ExecuteNonQuery();
+               // MessageBox.Show("Record Updated Successfully");
+               // con.Close();
             }
             catch (Exception ex)
             {
@@ -82,10 +66,11 @@ namespace GestorDeTiempo
         }
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            listBox1.DisplayMember = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            //txt_State.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-
+           //ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+          listBox1.DisplayMember = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+           // //txt_State.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+           // btnFinalizar.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+           // btnComenzarProduccion.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -93,6 +78,31 @@ namespace GestorDeTiempo
             MenuEncargado ME = new MenuEncargado();
             ME.ShowDialog();
             this.Close();
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               if (dataGridView1.RowCount.ToString() != string.Empty) { 
+                cmd = new SqlCommand("UPDATE ProductoDepartamentoProceso SET @IdEstado  WHERE ID=@id", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@id", ID);
+               // cmd.Parameters.AddWithValue("@IdProductoDepartamentoProceso", dataGridView1.SelectionMode);
+                cmd.Parameters.AddWithValue("@IdEstado", Convert.ToInt32(listBox1.SelectedValue));
+
+              
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Record Updated Successfully");
+                con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
+               
+               MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

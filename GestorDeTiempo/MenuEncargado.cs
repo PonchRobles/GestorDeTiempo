@@ -27,6 +27,9 @@ namespace GestorDeTiempo
         private void btnRegistroTipoDeUsuario_Click(object sender, EventArgs e)
         {
             RegistroDeTipoDeUsuario RTU = new RegistroDeTipoDeUsuario();
+            //RTU.Tag = this;
+            //RTU.Show(this);
+            //Hide();
             RTU.ShowDialog();
             this.Close();
         }
@@ -37,6 +40,13 @@ namespace GestorDeTiempo
             SP.ShowDialog();
             this.Close();
 
+        }
+
+        private void btnCrearPath_Click(object sender, EventArgs e)
+        {
+            AgregarLaCreacionDeUnProducto ACP = new AgregarLaCreacionDeUnProducto();
+            ACP.ShowDialog();
+            this.Close();
         }
     }
 }
