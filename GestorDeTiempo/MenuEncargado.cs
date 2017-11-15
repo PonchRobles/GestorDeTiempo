@@ -48,5 +48,12 @@ namespace GestorDeTiempo
             ACP.ShowDialog();
             this.Close();
         }
+
+        private void btnGeneral_Click(object sender, EventArgs e)
+        {
+            VistaGeneralEncargado VGE = new VistaGeneralEncargado();
+            VGE.ShowDialog();
+            this.Close();
+        }
     }
 }

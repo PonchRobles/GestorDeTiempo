@@ -24,8 +24,10 @@ namespace GestorDeTiempo
 
         private void AgregarLaCreacionDeUnProducto_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'tablaProcesoModificadaEnTime.Proceso' table. You can move, or remove it, as needed.
+            this.procesoTableAdapter1.Fill(this.tablaProcesoModificadaEnTime.Proceso);
             // TODO: This line of code loads data into the 'gestorTiempoDataSet3.Proceso' table. You can move, or remove it, as needed.
-            this.procesoTableAdapter.Fill(this.gestorTiempoDataSet3.Proceso);
+            // this.procesoTableAdapter.Fill(this.gestorTiempoDataSet3.Proceso);
             // TODO: This line of code loads data into the 'selectedDepartamento.Departamento' table. You can move, or remove it, as needed.
             this.departamentoTableAdapter.Fill(this.selectedDepartamento.Departamento);
             // TODO: This line of code loads data into the 'gestorTiempoDataSet1.Producto' table. You can move, or remove it, as needed.
@@ -42,7 +44,7 @@ namespace GestorDeTiempo
                 cmd.Parameters.AddWithValue("IdProducto", this.comboBox1.SelectedValue);
                 cmd.Parameters.AddWithValue("IdDepartamento", this.comboBox2.SelectedValue);
                 cmd.Parameters.AddWithValue("IdProceso", this.comboBox3.SelectedValue);
-                cmd.Parameters.AddWithValue("StartTime", this.dateTimePicker1.Value.ToLongDateString().ToString());
+                cmd.Parameters.AddWithValue("StartTime", this.dateTimePicker1.Value);
                 cmd.Parameters.AddWithValue("IdEstado", 1);
                 //cmd.Parameters.AddWithValue("@IdProductoDepartamentoProceso", dataGridView1.Rows.Count);
                 //cmd.Parameters.AddWithValue("@idestado", listBox1.SelectedValue);
@@ -60,6 +62,14 @@ namespace GestorDeTiempo
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            MenuEncargado ME = new MenuEncargado();
+          
+            ME.ShowDialog();
+            this.Close();
         }
     }
 }

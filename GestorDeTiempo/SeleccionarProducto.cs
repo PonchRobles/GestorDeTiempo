@@ -17,6 +17,7 @@ namespace GestorDeTiempo
         SqlCommand cmd;
         SqlDataAdapter adapt;
         int ID = 0;
+        DataSet ds;
         public SeleccionarProducto()
         {
             InitializeComponent();
@@ -25,6 +26,8 @@ namespace GestorDeTiempo
 
         private void SeleccionarProducto_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'gestorTiempoDataSet5.ProductoDepartamentoProceso' table. You can move, or remove it, as needed.
+            this.productoDepartamentoProcesoTableAdapter.Fill(this.gestorTiempoDataSet5.ProductoDepartamentoProceso);
             // TODO: This line of code loads data into the 'gestorTiempoDataSet4.Producto' table. You can move, or remove it, as needed.
             this.productoTableAdapter1.Fill(this.gestorTiempoDataSet4.Producto);
             // TODO: This line of code loads data into the 'gestorTiempoDataSet2.EstadoDeProceso' table. You can move, or remove it, as needed.
@@ -34,43 +37,36 @@ namespace GestorDeTiempo
 
         }
 
-        private void btnComenzarProduccion_Click(object sender, EventArgs e)
+       
+        private void DisplayData()
         {
             try
             {
-               
-               // cmd = new SqlCommand("UPDATE ProductoDepartamentoProceso SET IdEstado=@idestado  WHERE IdProductoDepartamentoProceso =@IdProductoDepartamentoProceso", con);
-               // con.Open();
-               //// cmd.Parameters.AddWithValue("@IdProductoDepartamentoProceso", dataGridView1.Rows.Count);
-               // cmd.Parameters.AddWithValue("@idestado", 2);
 
-               // //cmd.Parameters.AddWithValue("@state", txt_State.Text);
-               // cmd.ExecuteNonQuery();
-               // MessageBox.Show("Record Updated Successfully");
-               // con.Close();
+                con.Open();
+                DataTable dt = new DataTable();
+                //adapt = new SqlDataAdapter("select PDP.IdProductoDepartamentoProceso,PRS.NombreProceso, D.NombreDepartamento,P.NombreProducto,EP.NombreEstadoProceso,PDP.StartTime from ProductoDepartamentoProceso PDP inner join ProductoPorDepartamento PD on PD.IdDepartamento = PDP.IdDepartamento and pd.IdProducto = PDP.IdProducto inner join Proceso PRS on PRS.IdDepartamento = PDP.IdDepartamento inner join EstadoDeProceso EP on EP.IdEstadoDeProceso = PDP.IdEstado inner join Departamento D on D.IdDepartamento = PDP.IdDepartamento inner join Producto P on P.IdProducto = PDP.IdProducto", con);
+                adapt = new SqlDataAdapter("SELECT IdProducto,IdDepartamento,IdProceso,IdProductoDepartamentoProceso,StartTime,EndTime,IdEstado from ProductoDepartamentoProceso",con);
+                ds = new System.Data.DataSet();
+                adapt.Fill(ds, "Product_Details");
+                dataGridView1.DataSource = ds.Tables[0];
+                con.Close();
+                
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
             }
-}
-        private void DisplayData()
-        {
-            con.Open();
-            DataTable dt = new DataTable();
-            adapt = new SqlDataAdapter("select  PDP.IdProductoDepartamentoProceso, PRS.NombreProceso, D.NombreDepartamento,P.NombreProducto,EP.NombreEstadoProceso  from ProductoDepartamentoProceso PDP inner join ProductoPorDepartamento PD on PD.IdDepartamento = PDP.IdDepartamento and pd.IdProducto = PDP.IdProducto inner join Proceso PRS on PRS.IdDepartamento = PDP.IdDepartamento inner join EstadoDeProceso EP on EP.IdEstadoDeProceso = PDP.IdEstado inner join Departamento D on D.IdDepartamento = PDP.IdDepartamento inner join Producto P on P.IdProducto = PDP.IdProducto", con);
-            adapt.Fill(dt);
-            dataGridView1.DataSource = dt;
-            con.Close();
+
         }
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-           //ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-          listBox1.DisplayMember = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-           // //txt_State.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-           // btnFinalizar.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-           // btnComenzarProduccion.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            //ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            listBox1.DisplayMember = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            // //txt_State.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            // btnFinalizar.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            // btnComenzarProduccion.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -80,29 +76,80 @@ namespace GestorDeTiempo
             this.Close();
         }
 
-        private void btnFinalizar_Click(object sender, EventArgs e)
+        private void btnComenzarProduccion_Click(object sender, EventArgs e)
         {
             try
             {
-               if (dataGridView1.RowCount.ToString() != string.Empty) { 
-                cmd = new SqlCommand("UPDATE ProductoDepartamentoProceso SET @IdEstado  WHERE ID=@id", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@id", ID);
-               // cmd.Parameters.AddWithValue("@IdProductoDepartamentoProceso", dataGridView1.SelectionMode);
-                cmd.Parameters.AddWithValue("@IdEstado", Convert.ToInt32(listBox1.SelectedValue));
+                if (dataGridView1.SelectedRows.Count > 0 && dataGridView1.CurrentRow.Index < dataGridView1.Rows.Count)
+                {
+                    cmd = new SqlCommand("UPDATE ProductoDepartamentoProceso SET IdEstado =@idestado  WHERE '" + txtIdProductoDepartamento.Text + "'= IdProductoDepartamentoProceso", con);
+                    con.Open();
+                    cmd.Parameters.AddWithValue("idestado", Convert.ToInt32(listBox1.SelectedValue));
+                  
 
-              
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Record Updated Successfully");
-                con.Close();
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Record Updated Successfully");
+                    con.Close();
+
                 }
             }
             catch (Exception ex)
             {
 
-               
-               MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0 && dataGridView1.CurrentRow.Index < dataGridView1.Rows.Count)
+                {
+                    cmd = new SqlCommand("UPDATE ProductoDepartamentoProceso SET IdEstado =@idestado,EndTime=@EndTime  WHERE '" + txtIdProductoDepartamento.Text + "'= IdProductoDepartamentoProceso", con);
+                    con.Open();
+                    cmd.Parameters.AddWithValue("idestado", Convert.ToInt32(listBox1.SelectedValue));
+                    cmd.Parameters.AddWithValue("EndTime",DateTime.Now);
+
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Record Updated Successfully");
+                    con.Close();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0 && dataGridView1.CurrentRow.Index < dataGridView1.Rows.Count)
+                {
+                    DataGridViewRow row = dataGridView1.SelectedRows[0];
+
+                    txtIdProducto.Text = row.Cells["IdProducto"].Value.ToString();
+                    txtIdDepartamento.Text = row.Cells["IdDepartamento"].Value.ToString();
+                    txtIdProceso.Text = row.Cells["IdProceso"].Value.ToString();
+                    txtIdProductoDepartamento.Text = row.Cells["IdProductoDepartamentoProceso"].Value.ToString();
+
+                    txtStartTime.Text = row.Cells["StartTime"].Value.ToString();
+                    txtEnTime.Text = row.Cells["EndTime"].Value.ToString();
+                    txtIdEstado.Text = row.Cells["IdEstado"].Value.ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+          
         }
     }
 }

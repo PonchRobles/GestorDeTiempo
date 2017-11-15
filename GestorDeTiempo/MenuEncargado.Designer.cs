@@ -32,11 +32,12 @@
             this.btnRegistroTipoDeUsuario = new System.Windows.Forms.Button();
             this.btnProducirUnProducto = new System.Windows.Forms.Button();
             this.btnCrearPath = new System.Windows.Forms.Button();
+            this.btnGeneral = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRegistrarUsuario
             // 
-            this.btnRegistrarUsuario.Location = new System.Drawing.Point(32, 39);
+            this.btnRegistrarUsuario.Location = new System.Drawing.Point(12, 12);
             this.btnRegistrarUsuario.Name = "btnRegistrarUsuario";
             this.btnRegistrarUsuario.Size = new System.Drawing.Size(172, 96);
             this.btnRegistrarUsuario.TabIndex = 0;
@@ -46,7 +47,7 @@
             // 
             // btnRegistroTipoDeUsuario
             // 
-            this.btnRegistroTipoDeUsuario.Location = new System.Drawing.Point(256, 38);
+            this.btnRegistroTipoDeUsuario.Location = new System.Drawing.Point(190, 11);
             this.btnRegistroTipoDeUsuario.Name = "btnRegistroTipoDeUsuario";
             this.btnRegistroTipoDeUsuario.Size = new System.Drawing.Size(172, 97);
             this.btnRegistroTipoDeUsuario.TabIndex = 1;
@@ -56,7 +57,7 @@
             // 
             // btnProducirUnProducto
             // 
-            this.btnProducirUnProducto.Location = new System.Drawing.Point(32, 176);
+            this.btnProducirUnProducto.Location = new System.Drawing.Point(12, 114);
             this.btnProducirUnProducto.Name = "btnProducirUnProducto";
             this.btnProducirUnProducto.Size = new System.Drawing.Size(172, 96);
             this.btnProducirUnProducto.TabIndex = 2;
@@ -66,7 +67,7 @@
             // 
             // btnCrearPath
             // 
-            this.btnCrearPath.Location = new System.Drawing.Point(256, 176);
+            this.btnCrearPath.Location = new System.Drawing.Point(190, 114);
             this.btnCrearPath.Name = "btnCrearPath";
             this.btnCrearPath.Size = new System.Drawing.Size(172, 96);
             this.btnCrearPath.TabIndex = 3;
@@ -74,11 +75,22 @@
             this.btnCrearPath.UseVisualStyleBackColor = true;
             this.btnCrearPath.Click += new System.EventHandler(this.btnCrearPath_Click);
             // 
+            // btnGeneral
+            // 
+            this.btnGeneral.Location = new System.Drawing.Point(13, 217);
+            this.btnGeneral.Name = "btnGeneral";
+            this.btnGeneral.Size = new System.Drawing.Size(171, 104);
+            this.btnGeneral.TabIndex = 4;
+            this.btnGeneral.Text = "VistaGral";
+            this.btnGeneral.UseVisualStyleBackColor = true;
+            this.btnGeneral.Click += new System.EventHandler(this.btnGeneral_Click);
+            // 
             // MenuEncargado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 348);
+            this.Controls.Add(this.btnGeneral);
             this.Controls.Add(this.btnCrearPath);
             this.Controls.Add(this.btnProducirUnProducto);
             this.Controls.Add(this.btnRegistroTipoDeUsuario);
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Button btnRegistroTipoDeUsuario;
         private System.Windows.Forms.Button btnProducirUnProducto;
         private System.Windows.Forms.Button btnCrearPath;
+        private System.Windows.Forms.Button btnGeneral;
     }
 }
