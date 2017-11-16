@@ -38,23 +38,24 @@
             this.selectedDepartamento = new GestorDeTiempo.SelectedDepartamento();
             this.departamentoTableAdapter = new GestorDeTiempo.SelectedDepartamentoTableAdapters.DepartamentoTableAdapter();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.procesoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tablaProcesoModificadaEnTime = new GestorDeTiempo.TablaProcesoModificadaEnTime();
             this.procesoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gestorTiempoDataSet3 = new GestorDeTiempo.GestorTiempoDataSet3();
             this.procesoTableAdapter = new GestorDeTiempo.GestorTiempoDataSet3TableAdapters.ProcesoTableAdapter();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnRegresar = new System.Windows.Forms.Button();
-            this.tablaProcesoModificadaEnTime = new GestorDeTiempo.TablaProcesoModificadaEnTime();
-            this.procesoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.procesoTableAdapter1 = new GestorDeTiempo.TablaProcesoModificadaEnTimeTableAdapters.ProcesoTableAdapter();
+            this.txtCantidadDeProductos = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestorTiempoDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departamentoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedDepartamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.procesoBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaProcesoModificadaEnTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.procesoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestorTiempoDataSet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaProcesoModificadaEnTime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.procesoBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -118,6 +119,16 @@
             this.comboBox3.TabIndex = 2;
             this.comboBox3.ValueMember = "IdProceso";
             // 
+            // procesoBindingSource1
+            // 
+            this.procesoBindingSource1.DataMember = "Proceso";
+            this.procesoBindingSource1.DataSource = this.tablaProcesoModificadaEnTime;
+            // 
+            // tablaProcesoModificadaEnTime
+            // 
+            this.tablaProcesoModificadaEnTime.DataSetName = "TablaProcesoModificadaEnTime";
+            this.tablaProcesoModificadaEnTime.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // procesoBindingSource
             // 
             this.procesoBindingSource.DataMember = "Proceso";
@@ -159,25 +170,23 @@
             this.btnRegresar.UseVisualStyleBackColor = true;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
-            // tablaProcesoModificadaEnTime
-            // 
-            this.tablaProcesoModificadaEnTime.DataSetName = "TablaProcesoModificadaEnTime";
-            this.tablaProcesoModificadaEnTime.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // procesoBindingSource1
-            // 
-            this.procesoBindingSource1.DataMember = "Proceso";
-            this.procesoBindingSource1.DataSource = this.tablaProcesoModificadaEnTime;
-            // 
             // procesoTableAdapter1
             // 
             this.procesoTableAdapter1.ClearBeforeFill = true;
+            // 
+            // txtCantidadDeProductos
+            // 
+            this.txtCantidadDeProductos.Location = new System.Drawing.Point(13, 111);
+            this.txtCantidadDeProductos.Name = "txtCantidadDeProductos";
+            this.txtCantidadDeProductos.Size = new System.Drawing.Size(100, 20);
+            this.txtCantidadDeProductos.TabIndex = 6;
             // 
             // AgregarLaCreacionDeUnProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 199);
+            this.Controls.Add(this.txtCantidadDeProductos);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.dateTimePicker1);
@@ -191,11 +200,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gestorTiempoDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departamentoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedDepartamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.procesoBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaProcesoModificadaEnTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.procesoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestorTiempoDataSet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaProcesoModificadaEnTime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.procesoBindingSource1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -219,5 +229,6 @@
         private TablaProcesoModificadaEnTime tablaProcesoModificadaEnTime;
         private System.Windows.Forms.BindingSource procesoBindingSource1;
         private TablaProcesoModificadaEnTimeTableAdapters.ProcesoTableAdapter procesoTableAdapter1;
+        private System.Windows.Forms.TextBox txtCantidadDeProductos;
     }
 }

@@ -79,6 +79,8 @@ namespace GestorDeTiempo
                 txtEndTime.Text = row.Cells["EndTime"].Value.ToString();
                 txtUser.Text = row.Cells["NombreDeUsuario"].Value.ToString();
 
+              //  txtStartHour.Text = row.Cells["StartTime"].Value.ToString();
+
             }
         }
 
@@ -86,6 +88,7 @@ namespace GestorDeTiempo
         {
             try
             {
+                
                 DatosParaReporteDeVistaGralDeEncargado datos = new DatosParaReporteDeVistaGralDeEncargado();
                 Reporte R = new Reporte();
                 datos.ID = Convert.ToInt32(txtID.Text);
@@ -96,6 +99,17 @@ namespace GestorDeTiempo
                 datos.StartTime = Convert.ToDateTime(txtStartTime.Text);
                 datos.EndTime = Convert.ToDateTime(txtEndTime.Text);
                 datos.NombreDeUsuario = txtUser.Text;
+                datos.StartHour = Convert.ToInt32(datos.StartTime.Hour.ToString());
+                datos.EndHour = Convert.ToInt32(datos.EndTime.Hour.ToString());
+
+                var FirstHour = datos.StartHour;
+                var SecondHour = datos.EndHour;
+
+                var r = 30/(FirstHour - SecondHour) * 100;
+
+              
+
+
                 R.Datos.Add(datos);
                 R.Show();
             }
@@ -105,6 +119,13 @@ namespace GestorDeTiempo
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            MenuEncargado ME = new MenuEncargado();
+            ME.ShowDialog();
+            this.Close();
         }
     }
 }

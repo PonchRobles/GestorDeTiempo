@@ -75,6 +75,12 @@
       <DependentUpon>AgregarLaCreacionDeUnProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="DatosParaReporteDeVistaGralDeEncargado.cs" />
+    <Compile Include="DepartamentoCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepartamentoCRUD.Designer.cs">
+      <DependentUpon>DepartamentoCRUD.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestorTiempoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -120,8 +126,20 @@
     <Compile Include="MenuEncargado.Designer.cs">
       <DependentUpon>MenuEncargado.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductoVincularConDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductoVincularConDepartamento.Designer.cs">
+      <DependentUpon>ProductoVincularConDepartamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrarWorkStation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrarWorkStation.Designer.cs">
+      <DependentUpon>RegistrarWorkStation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,10 +176,40 @@
       <DependentUpon>SelectedDepartamento.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="TablaDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TablaDepartamento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TablaDepartamentoParaProcesos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TablaDepartamentoParaProcesos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TablaDepartamentoParaVincularConProducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TablaDepartamentoParaVincularConProducto.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TablaProcesoModificadaEnTime.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TablaProcesoModificadaEnTime.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TablaProductoParaVincularConDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TablaProductoParaVincularConDepartamento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TablaUsuariosParaCrearDepartamento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TablaUsuariosParaCrearDepartamento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TablaWorkStation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TablaWorkStation.xsd</DependentUpon>
     </Compile>
     <Compile Include="VistaGeneralEncargado.cs">
       <SubType>Form</SubType>
@@ -169,14 +217,26 @@
     <Compile Include="VistaGeneralEncargado.Designer.cs">
       <DependentUpon>VistaGeneralEncargado.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkStationVincularConDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkStationVincularConDepartamento.Designer.cs">
+      <DependentUpon>WorkStationVincularConDepartamento.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AgregarLaCreacionDeUnProducto.resx">
       <DependentUpon>AgregarLaCreacionDeUnProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepartamentoCRUD.resx">
+      <DependentUpon>DepartamentoCRUD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioDeSesion.resx">
       <DependentUpon>InicioDeSesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuEncargado.resx">
       <DependentUpon>MenuEncargado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductoVincularConDepartamento.resx">
+      <DependentUpon>ProductoVincularConDepartamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -187,6 +247,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RegistrarWorkStation.resx">
+      <DependentUpon>RegistrarWorkStation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registro.resx">
       <DependentUpon>Registro.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VistaGeneralEncargado.resx">
       <DependentUpon>VistaGeneralEncargado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkStationVincularConDepartamento.resx">
+      <DependentUpon>WorkStationVincularConDepartamento.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="GestorTiempoDataSet.xsc">
       <DependentUpon>GestorTiempoDataSet.xsd</DependentUpon>
@@ -294,6 +360,39 @@
     <None Include="SelectedDepartamento.xss">
       <DependentUpon>SelectedDepartamento.xsd</DependentUpon>
     </None>
+    <None Include="TablaDepartamento.xsc">
+      <DependentUpon>TablaDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="TablaDepartamento.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TablaDepartamento.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TablaDepartamento.xss">
+      <DependentUpon>TablaDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="TablaDepartamentoParaProcesos.xsc">
+      <DependentUpon>TablaDepartamentoParaProcesos.xsd</DependentUpon>
+    </None>
+    <None Include="TablaDepartamentoParaProcesos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TablaDepartamentoParaProcesos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TablaDepartamentoParaProcesos.xss">
+      <DependentUpon>TablaDepartamentoParaProcesos.xsd</DependentUpon>
+    </None>
+    <None Include="TablaDepartamentoParaVincularConProducto.xsc">
+      <DependentUpon>TablaDepartamentoParaVincularConProducto.xsd</DependentUpon>
+    </None>
+    <None Include="TablaDepartamentoParaVincularConProducto.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TablaDepartamentoParaVincularConProducto.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TablaDepartamentoParaVincularConProducto.xss">
+      <DependentUpon>TablaDepartamentoParaVincularConProducto.xsd</DependentUpon>
+    </None>
     <None Include="TablaProcesoModificadaEnTime.xsc">
       <DependentUpon>TablaProcesoModificadaEnTime.xsd</DependentUpon>
     </None>
@@ -304,6 +403,39 @@
     </None>
     <None Include="TablaProcesoModificadaEnTime.xss">
       <DependentUpon>TablaProcesoModificadaEnTime.xsd</DependentUpon>
+    </None>
+    <None Include="TablaProductoParaVincularConDepartamento.xsc">
+      <DependentUpon>TablaProductoParaVincularConDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="TablaProductoParaVincularConDepartamento.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TablaProductoParaVincularConDepartamento.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TablaProductoParaVincularConDepartamento.xss">
+      <DependentUpon>TablaProductoParaVincularConDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="TablaUsuariosParaCrearDepartamento.xsc">
+      <DependentUpon>TablaUsuariosParaCrearDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="TablaUsuariosParaCrearDepartamento.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TablaUsuariosParaCrearDepartamento.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TablaUsuariosParaCrearDepartamento.xss">
+      <DependentUpon>TablaUsuariosParaCrearDepartamento.xsd</DependentUpon>
+    </None>
+    <None Include="TablaWorkStation.xsc">
+      <DependentUpon>TablaWorkStation.xsd</DependentUpon>
+    </None>
+    <None Include="TablaWorkStation.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TablaWorkStation.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TablaWorkStation.xss">
+      <DependentUpon>TablaWorkStation.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

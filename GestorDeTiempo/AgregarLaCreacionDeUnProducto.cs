@@ -39,13 +39,16 @@ namespace GestorDeTiempo
         {
             try
             {
-                cmd = new SqlCommand("insert into ProductoDepartamentoProceso (IdProducto,IdDepartamento,IdProceso,StartTime,IdEstado) values(@IdProducto,@IdDepartamento,@IdProceso,@StartTime,@IdEstado)", con);
+                cmd = new SqlCommand(@"insert into ProductoDepartamentoProceso
+        (IdProducto,IdDepartamento,IdProceso,StartTime,IdEstado,CantidadDeProductos)
+            values(@IdProducto,@IdDepartamento,@IdProceso,@StartTime,@IdEstado,@CantidadDeProductos)", con);
                 con.Open();
                 cmd.Parameters.AddWithValue("IdProducto", this.comboBox1.SelectedValue);
                 cmd.Parameters.AddWithValue("IdDepartamento", this.comboBox2.SelectedValue);
                 cmd.Parameters.AddWithValue("IdProceso", this.comboBox3.SelectedValue);
                 cmd.Parameters.AddWithValue("StartTime", this.dateTimePicker1.Value);
                 cmd.Parameters.AddWithValue("IdEstado", 1);
+                cmd.Parameters.AddWithValue("CantidadDeProductos", Convert.ToInt32(this.txtCantidadDeProductos.Text));
                 //cmd.Parameters.AddWithValue("@IdProductoDepartamentoProceso", dataGridView1.Rows.Count);
                 //cmd.Parameters.AddWithValue("@idestado", listBox1.SelectedValue);
                 //cmd.Parameters.AddWithValue("@state", txt_State.Text);

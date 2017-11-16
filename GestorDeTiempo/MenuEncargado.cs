@@ -55,5 +55,41 @@ namespace GestorDeTiempo
             VGE.ShowDialog();
             this.Close();
         }
+
+        private void btnRegistrarDep_Click(object sender, EventArgs e)
+        {
+            DepartamentoCRUD DEPCRUD = new DepartamentoCRUD();
+            DEPCRUD.ShowDialog();
+            this.Close();
+
+        }
+
+        private void btnRegistrarProceso_Click(object sender, EventArgs e)
+        {
+            RegistroDeProceso RP = new RegistroDeProceso();
+            RP.ShowDialog();
+            this.Close();
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            RegistrarWorkStation RWS = new RegistrarWorkStation();
+            RWS.ShowDialog();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            WorkStationVincularConDepartamento WSVD = new WorkStationVincularConDepartamento();
+            WSVD.ShowDialog();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ProductoVincularConDepartamento PVD = new ProductoVincularConDepartamento();
+            PVD.ShowDialog();
+            this.Close();
+        }
     }
 }

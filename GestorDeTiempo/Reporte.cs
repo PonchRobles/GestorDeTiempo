@@ -14,6 +14,7 @@ namespace GestorDeTiempo
     public partial class Reporte : Form
     {
         public List<DatosParaReporteDeVistaGralDeEncargado> Datos = new List<DatosParaReporteDeVistaGralDeEncargado>();
+
         public Reporte()
         {
             InitializeComponent();

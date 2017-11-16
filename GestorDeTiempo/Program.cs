@@ -16,7 +16,7 @@ namespace GestorDeTiempo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VistaGeneralEncargado());
+            Application.Run(new RegistroDeProceso());
         }
     }
 }

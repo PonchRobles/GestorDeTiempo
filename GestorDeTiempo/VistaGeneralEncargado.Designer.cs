@@ -39,6 +39,9 @@
             this.txtEndTime = new System.Windows.Forms.TextBox();
             this.btnReporte = new System.Windows.Forms.Button();
             this.txtUser = new System.Windows.Forms.TextBox();
+            this.txtStartHour = new System.Windows.Forms.TextBox();
+            this.txtEndHour = new System.Windows.Forms.TextBox();
+            this.btnRegresar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +60,7 @@
             // 
             // btnDetalle
             // 
-            this.btnDetalle.Location = new System.Drawing.Point(480, 69);
+            this.btnDetalle.Location = new System.Drawing.Point(661, 92);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(75, 23);
             this.btnDetalle.TabIndex = 1;
@@ -123,7 +126,7 @@
             // 
             // btnReporte
             // 
-            this.btnReporte.Location = new System.Drawing.Point(480, 99);
+            this.btnReporte.Location = new System.Drawing.Point(661, 122);
             this.btnReporte.Name = "btnReporte";
             this.btnReporte.Size = new System.Drawing.Size(75, 23);
             this.btnReporte.TabIndex = 9;
@@ -139,11 +142,38 @@
             this.txtUser.Size = new System.Drawing.Size(100, 20);
             this.txtUser.TabIndex = 10;
             // 
+            // txtStartHour
+            // 
+            this.txtStartHour.Location = new System.Drawing.Point(346, 39);
+            this.txtStartHour.Name = "txtStartHour";
+            this.txtStartHour.Size = new System.Drawing.Size(100, 20);
+            this.txtStartHour.TabIndex = 11;
+            // 
+            // txtEndHour
+            // 
+            this.txtEndHour.Location = new System.Drawing.Point(346, 70);
+            this.txtEndHour.Name = "txtEndHour";
+            this.txtEndHour.Size = new System.Drawing.Size(100, 20);
+            this.txtEndHour.TabIndex = 12;
+            // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Location = new System.Drawing.Point(661, 71);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(75, 23);
+            this.btnRegresar.TabIndex = 13;
+            this.btnRegresar.Text = "Regresar";
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
             // VistaGeneralEncargado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 499);
+            this.Controls.Add(this.btnRegresar);
+            this.Controls.Add(this.txtEndHour);
+            this.Controls.Add(this.txtStartHour);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.txtEndTime);
@@ -177,5 +207,8 @@
         private System.Windows.Forms.TextBox txtEndTime;
         private System.Windows.Forms.Button btnReporte;
         private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.TextBox txtStartHour;
+        private System.Windows.Forms.TextBox txtEndHour;
+        private System.Windows.Forms.Button btnRegresar;
     }
 }

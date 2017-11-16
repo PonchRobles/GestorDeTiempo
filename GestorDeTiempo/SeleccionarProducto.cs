@@ -46,7 +46,8 @@ namespace GestorDeTiempo
                 con.Open();
                 DataTable dt = new DataTable();
                 //adapt = new SqlDataAdapter("select PDP.IdProductoDepartamentoProceso,PRS.NombreProceso, D.NombreDepartamento,P.NombreProducto,EP.NombreEstadoProceso,PDP.StartTime from ProductoDepartamentoProceso PDP inner join ProductoPorDepartamento PD on PD.IdDepartamento = PDP.IdDepartamento and pd.IdProducto = PDP.IdProducto inner join Proceso PRS on PRS.IdDepartamento = PDP.IdDepartamento inner join EstadoDeProceso EP on EP.IdEstadoDeProceso = PDP.IdEstado inner join Departamento D on D.IdDepartamento = PDP.IdDepartamento inner join Producto P on P.IdProducto = PDP.IdProducto", con);
-                adapt = new SqlDataAdapter("SELECT IdProducto,IdDepartamento,IdProceso,IdProductoDepartamentoProceso,StartTime,EndTime,IdEstado from ProductoDepartamentoProceso",con);
+                adapt = new SqlDataAdapter(@"SELECT IdProducto,IdDepartamento,IdProceso,IdProductoDepartamentoProceso,StartTime,EndTime,IdEstado,CantidadDeProductos
+                                                    from ProductoDepartamentoProceso", con);
                 ds = new System.Data.DataSet();
                 adapt.Fill(ds, "Product_Details");
                 dataGridView1.DataSource = ds.Tables[0];
